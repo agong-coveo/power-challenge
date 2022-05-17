@@ -1,0 +1,5 @@
+# Python environnements
+env/
+
+# Coveo log file
+CoveoPush.log
