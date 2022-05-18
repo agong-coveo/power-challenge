@@ -24,8 +24,27 @@
 </head>
 
 <body id="search" class="CoveoSearchInterface">
+  <div
+    class="CoveoFoldingForThread"
+    data-parent="@foldingparentid"
+    data-child="@foldingchildid"
+    data-field="@foldingcollectionid"
+  ></div>
   <!-- <div class="CoveoAnalytics" data-search-hub="CommunitySearch"></div> -->
-
+  <script id="basic" class="result-template" type="text/html">
+    <div>
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <a class="CoveoResultLink"></a>
+        </div>
+      </div>
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <div class="CoveoExcerpt"></div>
+        </div>
+      </div>
+    </div>
+  </script>
   <div class="coveo-tab-section">
     <a
       class="CoveoTab coveo-accessible-button coveo-selected"
@@ -44,7 +63,6 @@
     ></div> -->
     <div class="CoveoSearchbox"></div>
     <div class="CoveoFieldSuggestions" data-field="@pokemonname"></div>
-
   </div>
 
   <div class="coveo-main-section">
@@ -68,13 +86,13 @@
         class="CoveoFacetSlider"
         data-title="National Number"
         data-field="@nationalnum"
-        data-range-slider='true'
+        data-range-slider="true"
       ></div>
       <div
         class="CoveoFacetSlider"
         data-title="Weight (kg)"
         data-field="@pokemonweight"
-        data-range-slider='true'
+        data-range-slider="true"
       ></div>
     </div>
     <div class="coveo-results-column">
@@ -84,7 +102,37 @@
           <span class="CoveoQueryDuration"></span>
         </div>
       </div>
-      <div class="CoveoResultList" layout="list">
+      <script id="folding-child" class="result-template" type="text/html">
+        <div class="coveo-result-frame">
+          <div
+            class="coveo-result-cell"
+            style="vertical-align:top;text-align:center;width:120px;"
+          >
+            <span
+              class="CoveoImageFieldValue"
+              data-field="@pokemonimg"
+              data-height="100"
+            ></span>
+          </div>
+          <div
+            class="coveo-result-cell"
+            style="vertical-align:middle;padding-left: 16px;width: 200px;"
+          >
+            <div class="coveo-result-row">
+              <div class="coveo-result-cell" style="display: flex; flex-direction: column;">
+                <span class="CoveoFieldValue" style="margin-bottom: 10px;" data-field="@pokemonname"></span>
+                <span
+                  class="CoveoFieldValue coveo-with-label"
+                  data-field="@pokemontype"
+                  data-text-caption="Type"
+                  style="margin-right:30px;"
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </script>
+      <div class="CoveoResultList" data-layout="list">
         <script
           id="customListTemplate"
           class="result-template"
@@ -106,13 +154,8 @@
               class="coveo-result-cell"
               style="vertical-align: top;padding-left: 16px;"
             >
-              <div class="coveo-result-row" style="margin-top:0;">
-                <div
-                  class="coveo-result-cell"
-                  style="vertical-align:top;font-size:16px;"
-                  role="heading"
-                  aria-level="2"
-                >
+              <div class="coveo-result-row">
+                <div class="coveo-result-cell" role="heading" aria-level="2">
                   <a class="CoveoResultLink"></a>
                 </div>
                 <div
@@ -128,7 +171,7 @@
                   </div>
                 </div>
               </div>
-              <div class="coveo-result-row" style="margin-top:10px;">
+              <div class="coveo-result-row" style="margin-bottom: 15px;">
                 <div class="coveo-result-cell">
                   <span
                     class="CoveoFieldValue"
@@ -136,7 +179,7 @@
                   ></span>
                 </div>
               </div>
-              <div class="coveo-result-row" style="margin-top:10px;">
+              <div class="coveo-result-row">
                 <div class="coveo-result-cell">
                   <span
                     class="CoveoFieldValue coveo-with-label"
@@ -163,14 +206,19 @@
                   ></span>
                 </div>
               </div>
-              <div class="coveo-result-row" style="margin-top:10px;">
+              <div class="coveo-result-row">
                 <div class="coveo-result-cell">
-                  <div class="CoveoPrintableUri" role="list"></div>
+                  <div class="CoveoMissingTerms"></div>
                 </div>
               </div>
               <div class="coveo-result-row">
                 <div class="coveo-result-cell">
-                  <div class="CoveoMissingTerms"></div>
+                  <span
+                    class="CoveoResultFolding"
+                    data-enable-expand="false"
+                    data-result-template-id="folding-child"
+                  >
+                  </span>
                 </div>
               </div>
             </div>

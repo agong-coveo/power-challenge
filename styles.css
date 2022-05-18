@@ -1,5 +1,11 @@
 .CoveoResult {
-    height: 180px;
+    height: max-content;
+}
+
+.coveo-result-folding-child-result {
+    border-left: none !important;
+    padding-left: 15px !important;
+    width: max-content;
 }
 
 img {
@@ -10,6 +16,29 @@ img {
     height: auto;
 }
 
-.coveo-result-cell {
-    vertical-align: middle !important;
+.coveo-folding-footer {
+    display: none;
+}
+
+.coveo-folding-results {
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+svg.coveo-facet-value-checkbox-svg {
+    margin-top: 5px;
+}
+
+.coveo-facet-value-checkbox.coveo-accessible-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.magic-box-clear.coveo-accessible-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
