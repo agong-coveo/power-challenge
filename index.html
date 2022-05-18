@@ -24,7 +24,7 @@
 </head>
 
 <body id="search" class="CoveoSearchInterface">
-  <div class="CoveoAnalytics" data-search-hub="CommunitySearch"></div>
+  <!-- <div class="CoveoAnalytics" data-search-hub="CommunitySearch"></div> -->
 
   <div class="coveo-tab-section">
     <a
@@ -38,10 +38,13 @@
     </a>
   </div>
   <div class="coveo-search-section">
-    <div
+    <!-- <div
       class="CoveoSearchbox"
       data-query-suggest-character-threshold="1"
-    ></div>
+    ></div> -->
+    <div class="CoveoSearchbox"></div>
+    <div class="CoveoFieldSuggestions" data-field="@pokemonname"></div>
+
   </div>
 
   <div class="coveo-main-section">
@@ -60,14 +63,16 @@
         data-tab="All"
       ></div>
       <div
-        class="CoveoFacetSlider coveo-disabled"
+        class="CoveoFacetSlider"
         data-title="Pokémon Number"
         data-field="@nationalnum"
+        data-range-slider='true'
       ></div>
       <div
-        class="CoveoFacetSlider coveo-disabled"
+        class="CoveoFacetSlider"
         data-title="Weight (kg)"
         data-field="@pokemonweight"
+        data-range-slider='true'
       ></div>
     </div>
     <div class="coveo-results-column">
